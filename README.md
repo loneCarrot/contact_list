@@ -17,7 +17,7 @@
 
 - **Download or clone the repositiory exmaple to <i>htdocs, www</i> directory**
 - **Start your local server**:
-  - **you need apache, and mysqli**
+  - **you need apache, and mysql**
 
 - **Create a database in phpmyadmin, called: <i>contact_list</i>**
 - **Import <i>contact_list.sql</i> file to  <i>contact_list</i> database**
