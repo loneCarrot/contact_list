@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Contact List!{% endblock %}
+
+{% block body %}
+  <div class="container">
+            <div class="input-group mb-3">
+                <div class="col-xs-3">
+                <select class="form-select col-sm-3" id="inputGroupSelect" aria-label="Example select with button addon">
+                    <option value="name" selected>Name</option>
+                    <option value="phone_number">Phone Number</option>
+                    <option value="phone_number2">Phone Number2</option>
+                    <option value="email">Email</option>
+                </select>
+                </div>
+                <input type="text" class="form-control" id="search-field" aria-label="Text input with dropdown button">
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Phone Number 2</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    {% for data in list %}
+                    <tr class="contact-data">
+                        <td id="name">{{ data.name}}</td>
+                        <td id="phone_number">{{ data.phoneNumber}}</td>
+                        <td id="phone_number2">{{ data.phoneNumber2}}</td>
+                        <td id="description">{{ data.description}}</td>
+                        <td id="email">{{ data.emailAdd}}</td>
+                        <td>
+                        <a class="btn btn-warning" href="{{ path('update', {'id': data.id }) }}">Update</a>
+                        <a class="btn btn-danger" href="{{ path('delete', {'id': data.id }) }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                    <td colspan="6"><a class="btn btn-primary col-12" href="{{ path('create')}}">Create a Post</a></td>
+                    </tr>
+                </tbody>
+            </table>
+  </div>
+{% endblock %}
